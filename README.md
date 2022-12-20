@@ -33,13 +33,6 @@ git clone https://github.com/shivasiddharth/Assistants-Pi
 Place the Alexa **config.json in** file in the  **/home/pi/Assistants-Pi/Alexa** directory.        
 Place the Google **client_secret.....json** file in the **/home/pi/** directory.     
 
-2. Make the installers executable using:
-```
-sudo chmod +x /home/pi/Assistants-Pi/scripts/prep-system.sh    
-sudo chmod +x /home/pi/Assistants-Pi/scripts/audio-test.sh   
-sudo chmod +x /home/pi/Assistants-Pi/scripts/installer.sh  
-```    
-
 3. Prepare the system for installing assistants by updating, upgrading and setting up audio using:  
 ```
 sudo /home/pi/Assistants-Pi/scripts/prep-system.sh

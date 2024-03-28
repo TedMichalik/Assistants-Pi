@@ -65,6 +65,7 @@ sed -i 's/__USER__/'${USER}'/g' /home/${USER}/Assistants-Pi/systemd/google-assis
 echo ""
 echo ""
 echo "Installing Basic Requisites........."
+sudo apt install python3-pip -y
 sudo pip3 install pyyaml
 pip3 install pyyaml
 sudo pip3 install spidev

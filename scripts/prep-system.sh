@@ -65,15 +65,15 @@ sed -i 's/__USER__/'${USER}'/g' /home/${USER}/Assistants-Pi/systemd/google-assis
 echo ""
 echo ""
 echo "Installing Basic Requisites........."
-sudo apt install python3-pip -y
-sudo pip3 install pyyaml
-pip3 install pyyaml
-sudo pip3 install spidev
-pip3 install spidev
-sudo pip3 install gpiozero
-pip3 install gpiozero
-sudo pip3 install numpy
-pip3 install numpy
+#sudo apt install python3-pip -y
+sudo apt install python3-pyyaml
+#pip3 install pyyaml
+sudo apt install python3-spidev
+#pip3 install spidev
+sudo apt install python3-gpiozero
+#pip3 install gpiozero
+sudo apt install python3-numpy
+#pip3 install numpy
 echo ""
 echo ""
 echo "Select your audio and mic configuration: "

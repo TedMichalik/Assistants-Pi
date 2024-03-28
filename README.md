@@ -2,11 +2,11 @@
 ## One installer for both Google Asistant and Amazon Alexa   
 ## Simultaneously run Google Assistant and Alexa on Raspberry Pi    
 *******************************************************************************************************************************
-### **If you like the work, find it useful and if you would like to get me a :coffee: :smile:** [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7GH3YDCHZ36QN)  
+### **Forked from shivasiddharth/Assistants-Pi**  
 
 *******************************************************************************************************************************
 ### Note:
-**18/01/2020: Routine update and bug fixes.**  
+**2024: use Porcupine for wakeword detection.**  
 ****************************************************************
 **Before Starting the setup**
 ****************************************************************
@@ -27,15 +27,15 @@ https://github.com/alexa/avs-device-sdk/wiki/Create-Security-Profile
 ***************************************************************
 1. Clone the git using:
 ```
-git clone https://github.com/shivasiddharth/Assistants-Pi  
+git clone https://github.com/TedMichalik/Assistants-Pi  
 ```    
 **DO NOT RENAME THE CREDENTIALS FILEs**     
-Place the Alexa **config.json in** file in the  **/home/pi/Assistants-Pi/Alexa** directory.        
-Place the Google **client_secret.....json** file in the **/home/pi/** directory.     
+Place the Alexa **config.json in** file in the  **~/Assistants-Pi/Alexa** directory.        
+Place the Google **client_secret.....json** file in the **~/** directory.     
 
 3. Prepare the system for installing assistants by updating, upgrading and setting up audio using:  
 ```
-sudo /home/pi/Assistants-Pi/scripts/prep-system.sh
+sudo ~/Assistants-Pi/scripts/prep-system.sh
 ```    
 
 4. Restart the Pi using:

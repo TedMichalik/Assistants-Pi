@@ -22,10 +22,10 @@ fi
  sed -i \
   -e "s/^dtparam=audio=on/#\0/" \
   -e "s/^#\(dtparam=i2s=on\)/\1/" \
-  /boot/config.txt
-grep -q "dtoverlay=i2s-mmap" /boot/config.txt || \
-  echo "dtoverlay=i2s-mmap" >> /boot/config.txt
-grep -q "dtoverlay=googlevoicehat-soundcard" /boot/config.txt || \
-  echo "dtoverlay=googlevoicehat-soundcard" >> /boot/config.txt
-grep -q "dtparam=i2s=on" /boot/config.txt || \
-  echo "dtparam=i2s=on" >> /boot/config.txt
+  /boot/firmware/config.txt
+grep -q "dtoverlay=i2s-mmap" /boot/firmware/config.txt || \
+  echo "dtoverlay=i2s-mmap" >> /boot/firmware/config.txt
+grep -q "dtoverlay=googlevoicehat-soundcard" /boot/firmware/config.txt || \
+  echo "dtoverlay=googlevoicehat-soundcard" >> /boot/firmware/config.txt
+grep -q "dtparam=i2s=on" /boot/firmware/config.txt || \
+  echo "dtparam=i2s=on" >> /boot/firmware/config.txt

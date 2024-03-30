@@ -14,15 +14,14 @@ fi
 clear
 
 #Check CPU architecture
-if [[ $(uname -m|grep "armv7") ]] || [[ $(uname -m|grep "x86_64") ]]; then
-	devmodel="armv7"
+devmodel=$(uname -m)
+if [ "$devmodel" != "armv6" ]; then
   echo ""
-  echo "Your board is supported. Continuing.."
+  echo "Your $devmodel board is supported. Continuing.."
   echo ""
 else
-	devmodel="armv6"
   echo ""
-  echo "Your board is not supported. Exiting..."
+  echo "Your $devmodel board is not supported. Exiting..."
   echo ""
   exit 1
 fi
@@ -128,7 +127,7 @@ case $assistants in
   echo ""
   ;;
   Google-Assistant)
-  echo "Have you downloaded the credentials file, and placed it in /home/pi/ directory?"
+  echo "Have you downloaded the credentials file, and placed it in /home/${USER}/ directory?"
   parse_user_input 1 1 0
   USER_RESPONSE=$?
   if [ "$USER_RESPONSE" = "$YES_ANSWER" ]; then
@@ -142,7 +141,7 @@ case $assistants in
     echo ""
     echo "After that, proceed to step-9 mentioned in the README doc to set the assitsants to auto start on boot."
   elif ["$USER_RESPONSE" = "$NO_ANSWER" ]; then
-    echo "Download the credentials file, , place it in /home/pi/ directory and start the installer again."
+    echo "Download the credentials file, , place it in /home/${USER}/ directory and start the installer again."
     exit
   fi
   echo ""
@@ -160,7 +159,7 @@ case $assistants in
   echo ""
   echo "Finished Installing Alexa. Proceeding to install Google Assistant"
   echo ""
-  echo "Have you downloaded the credentials file, and placed it in /home/pi/ directory?"
+  echo "Have you downloaded the credentials file, and placed it in /home/${USER}/ directory?"
   echo ""
   echo ""
   parse_user_input 1 1 0
@@ -176,7 +175,7 @@ case $assistants in
     echo ""
     echo "After that, proceed to step-9 mentioned in the README doc to set the assitsants to auto start on boot."
   elif ["$USER_RESPONSE" = "$NO_ANSWER" ]; then
-    echo "Download the credentials file, , place it in /home/pi/ directory and start the installer again.."
+    echo "Download the credentials file, , place it in /home/${USER}/ directory and start the installer again.."
     exit
   fi
   ;;

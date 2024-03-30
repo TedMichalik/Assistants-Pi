@@ -67,7 +67,7 @@ echo ""
 echo "Installing Basic Requisites........."
 sudo apt install python3-pip -y
 sudo apt install python3-venv
-cd ~/Assistants-Pi
+cd /home/${USER}/Assistants-Pi
 python3 -m venv venv
 . venv/bin/activate
 pip install pyyaml

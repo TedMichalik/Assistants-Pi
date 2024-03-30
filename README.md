@@ -30,12 +30,12 @@ https://github.com/alexa/avs-device-sdk/wiki/Create-Security-Profile
 git clone https://github.com/TedMichalik/Assistants-Pi  
 ```    
 **DO NOT RENAME THE CREDENTIALS FILEs**     
-Place the Alexa **config.json in** file in the  **~/Assistants-Pi/Alexa** directory.        
-Place the Google **client_secret.....json** file in the **~/** directory.     
+Place the Alexa **config.json in** file in the  **/home/${USER}/Assistants-Pi/Alexa** directory.        
+Place the Google **client_secret.....json** file in the **/home/${USER}/** directory.     
 
 3. Prepare the system for installing assistants by updating, upgrading and setting up audio using:  
 ```
-sudo ~/Assistants-Pi/scripts/prep-system.sh
+sudo /home/${USER}/Assistants-Pi/scripts/prep-system.sh
 ```    
 
 4. Restart the Pi using:
@@ -56,7 +56,7 @@ sudo nano ~/.asoundrc
 
 6. Bonus Script - Test the audio setup using the following code (optional). **Dont panic if the test does not go through successfully, proceed with the installation**:  
 ```
-sudo /home/pi/Assistants-Pi/scripts/audio-test.sh  
+sudo /home/${USER}/Assistants-Pi/scripts/audio-test.sh  
 ```     
 
 7. Restart the Pi using:
@@ -66,15 +66,15 @@ sudo reboot
 
 8. Install the assistant/assistants using the following. This is an interactive script, so just follow the onscreen instructions:
 ```
-sudo /home/pi/Assistants-Pi/scripts/installer.sh  
+sudo /home/${USER}/Assistants-Pi/scripts/installer.sh  
 ```      
 
 9. After verification of the assistants, to make them auto start on boot:  
 
 Open a terminal and run the following commands:  
 ```
-sudo chmod +x /home/pi/Assistants-Pi/scripts/service-installer.sh
-sudo /home/pi/Assistants-Pi/scripts/service-installer.sh  
+sudo chmod +x /home/${USER}/Assistants-Pi/scripts/service-installer.sh
+sudo /home/${USER}/Assistants-Pi/scripts/service-installer.sh  
 ```
 For Alexa:  
 ```
@@ -87,16 +87,16 @@ sudo systemctl enable google-assistant.service
 
 10. Authorize Alexa before restarting  
 ```
-sudo /home/pi/Assistants-Pi/Alexa/startsample.sh  
+sudo /home/${USER}/Assistants-Pi/Alexa/startsample.sh  
 ```
 
 ### Manually Start The Alexa Assistant   
-Double click start.sh file in the /home/pi/Assistants-Pi/Alexa folder and choose to "Execute in the Terminal".       
+Double click start.sh file in the /home/${USER}/Assistants-Pi/Alexa folder and choose to "Execute in the Terminal".       
 
 ### Manually Start The Google Assistant
 Open a terminal and execute the following:
 ```
-/home/pi/env/bin/python -u /home/pi/Assistants-Pi/Google-Assistant/src/main.py --project_id 'replace this with the project id '--device_model_id 'replace this with the model id'
+/home/${USER}/env/bin/python -u /home/${USER}/Assistants-Pi/Google-Assistant/src/main.py --project_id 'replace this with the project id '--device_model_id 'replace this with the model id'
 ```   
 
 #### If you have issues with the Assistants strating on boot, you may have to setup PulseAudio as a system wide service. For further details refer this git https://github.com/shivasiddharth/PulseAudio-System-Wide      

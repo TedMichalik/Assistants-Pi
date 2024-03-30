@@ -30,5 +30,5 @@ Speech:
 Wakewords:
   Custom_Wakeword: 'Disabled'
   Custom_wakeword_models:
-    - '/home/pi/Assistants-Pi/Google-Assistant/src/resources/alexa.umdl'
-    - '/home/pi/Assistants-Pi/Google-Assistant/src/resources/snowboy.umdl'
+    - '/home/${USER}/Assistants-Pi/Google-Assistant/src/resources/alexa.umdl'
+    - '/home/${USER}/Assistants-Pi/Google-Assistant/src/resources/snowboy.umdl'

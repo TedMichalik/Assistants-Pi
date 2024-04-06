@@ -47,12 +47,12 @@ sudo apt-get install portaudio19-dev libffi-dev libssl-dev python3-google-auth-o
 python -m venv env
 source env/bin/activate
 
-python -m pip install --upgrade pip setuptools wheel
-python -m pip install --upgrade google-assistant-sdk[samples] 
+pip install --upgrade pip setuptools wheel
+pip install --upgrade google-assistant-sdk[samples]
+pip install protobuf==3.19.6
+pip install --upgrade tenacity
 
 google-oauthlib-tool --scope https://www.googleapis.com/auth/assistant-sdk-prototype \
-      --save --headless --client-secrets /path/to/client_secret_client-id.json
-google-oauthlib-tool --scope https://www.googleapis.com/auth/assistant-sdk-prototype \
           --scope https://www.googleapis.com/auth/gcm \
-          --save --headless --client-secrets $credname
+          --save --client-secrets $credname
 echo ""

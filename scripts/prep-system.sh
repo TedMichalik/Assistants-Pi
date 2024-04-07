@@ -48,32 +48,23 @@ select_option()
 
 echo ""
 echo "Updating and Upgrading System........."
-sudo apt-get update
+sudo apt update
+sudo apt full-upgrade
+echo ""
+echo "Installing Basic Requisites........."
 echo ""
 echo "Installing Git........"
 sudo apt-get install -y git
 echo ""
 echo "Installing pulseaudio....."
 sudo apt-get install pulseaudio
-echo ""
-echo "Installing screen...."
-sudo apt-get install screen
+#echo ""
+3echo "Installing screen...."
+3sudo apt-get install screen
 echo ""
 echo "Changing username in service files........."
 sed -i 's/__USER__/'${USER}'/g' /home/${USER}/Assistants-Pi/systemd/alexa.service
 sed -i 's/__USER__/'${USER}'/g' /home/${USER}/Assistants-Pi/systemd/google-assistant.service
-echo ""
-echo ""
-echo "Installing Basic Requisites........."
-sudo apt install python3-pip -y
-sudo apt install python3-venv
-cd /home/${USER}/Assistants-Pi
-python3 -m venv venv
-. venv/bin/activate
-pip install pyyaml
-pip install spidev
-pip install gpiozero
-pip install numpy
 echo ""
 echo ""
 echo "Select your audio and mic configuration: "

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+home_dir="$(pwd)"
 scripts_dir="$(dirname "${BASH_SOURCE[0]}")"
 GIT_DIR="$(realpath $(dirname ${BASH_SOURCE[0]})/..)"
 
@@ -58,9 +58,20 @@ sudo apt-get install -y git
 echo ""
 echo "Installing pulseaudio....."
 sudo apt-get install pulseaudio
+echo ""
+echo "Installing Python 3.9.19....."
+sudo apt-get install -y build-essential tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libffi-dev
+cd /home/${USER}/Downloads
+wget https://www.python.org/ftp/python/3.9.19/Python-3.9.19.tgz
+sudo tar zxf Python-3.9.19.tgz
+cd Python-3.9.19
+sudo ./configure --enable-optimizations
+sudo make -j 2
+sudo make altinstall
+cd $home_dir
 #echo ""
-3echo "Installing screen...."
-3sudo apt-get install screen
+#echo "Installing screen...."
+#sudo apt-get install screen
 echo ""
 echo "Changing username in service files........."
 sed -i 's/__USER__/'${USER}'/g' /home/${USER}/Assistants-Pi/systemd/alexa.service

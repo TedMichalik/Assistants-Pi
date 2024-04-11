@@ -120,11 +120,11 @@ if [ "$USER_RESPONSE" = "$YES_ANSWER" ]; then
     select_option mic AIY-HAT-or-CUSTOM-HAT USB-DAC-or-USB-SOUNDCARD-or-USB-MIC
     if [ $mic = AIY-HAT-or-CUSTOM-HAT ]; then
       echo "=============Recording Mic Audio Sample============="
-      arecord -d 10 -D hw:0,0 -r 48000 -f S32_LE -c2 /home/${USER}/mic-test.wav
+      arecord -d 10 -D hw:2,0 -r 48000 -f S32_LE -c2 /home/${USER}/mic-test.wav
       echo ""
     elif [ $mic = USB-DAC-or-USB-SOUNDCARD-or-USB-MIC ];then
       echo "=============Recording Mic Audio Sample============="
-      arecord -d 10 -D hw:1,0 -r 16000 -f S16_LE -c1 /home/${USER}/mic-test.wav
+      arecord -d 10 -D hw:2,0 -r 16000 -f S16_LE -c1 /home/${USER}/mic-test.wav
       echo ""
     fi
     echo "Finished recording the samples."

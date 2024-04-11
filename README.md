@@ -46,15 +46,15 @@ sudo reboot
 5. Make sure that contents of asoundrc match the contents of asound.conf    
    Open a terminal and type:  
 ```
-sudo nano /etc/asound.conf
+diff .asoundrc /etc/asound.conf
 ```
-   Open a second terminal and type:    
+   If the contents of .asoundrc are not same as asound.conf, open a second terminal and type:    
 ```
 sudo nano ~/.asoundrc
 ```  
-   If the contents of .asoundrc are not same as asound.conf, copy the contents from asound.conf to .asoundrc, save using ctrl+x and y
+   Copy the contents from asound.conf to .asoundrc, save using ctrl+x and y
 
-6. Bonus Script - Test the audio setup using the following code (optional). **Dont panic if the test does not go through successfully, proceed with the installation**:  
+6. Test the audio setup using the following code (optional). **If the test fails, check that the audio is on Card 2 (default)**:  
 ```
 sudo /home/${USER}/Assistants-Pi/scripts/audio-test.sh  
 ```     

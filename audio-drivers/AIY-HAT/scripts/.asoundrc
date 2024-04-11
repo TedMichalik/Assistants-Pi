@@ -1,15 +1,15 @@
 pcm.softvol {
     type softvol
-    slave.pcm dmix
+    slave.pcm "dmix:CARD=2,RATE=48000"
     control {
         name Master
-        card 0
+        card 2
     }
 }
 
 pcm.micboost {
     type route
-    slave.pcm dsnoop
+    slave.pcm "dsnoop:CARD=2,RATE=48000"
     ttable {
         0.0 30.0
         1.1 30.0
@@ -24,5 +24,5 @@ pcm.!default {
 
 ctl.!default {
     type hw
-    card 0
+    card 2
 }

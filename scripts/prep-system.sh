@@ -56,8 +56,8 @@ echo ""
 echo "Installing Git........"
 sudo apt-get install -y git
 echo ""
-echo "Installing pulseaudio....."
-sudo apt-get install pulseaudio
+echo "Installing pipewire....."
+sudo apt-get install -y pipewire pipewire-audio-client-libraries pulseaudio-utils wireplumber
 echo ""
 echo "Installing Python 3.9.19....."
 sudo apt-get install -y build-essential tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libffi-dev

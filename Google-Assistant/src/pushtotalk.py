@@ -37,6 +37,18 @@ except SystemError:
     import assistant_helpers
     import audio_helpers
 
+try:
+    import RPi.GPIO as GPIO
+except Exception as e:
+    if str(e) == 'No module named \'RPi\'':
+        GPIO = None
+
+if GPIO!=None:
+    from indicator import assistantindicator
+    GPIOcontrol=True
+else:
+    GPIOcontrol=False
+
 
 ASSISTANT_API_ENDPOINT = 'embeddedassistant.googleapis.com'
 END_OF_UTTERANCE = embedded_assistant_pb2.ConverseResponse.END_OF_UTTERANCE

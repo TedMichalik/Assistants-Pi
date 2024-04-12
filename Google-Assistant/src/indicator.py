@@ -7,7 +7,7 @@ except Exception as e:
         GPIO = None
 import time
 import os
-import apa102
+from . import apa102
 import time
 import threading
 import numpy

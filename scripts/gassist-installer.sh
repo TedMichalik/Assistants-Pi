@@ -51,6 +51,7 @@ pip install --upgrade pip setuptools wheel
 pip install --upgrade google-assistant-sdk[samples]
 pip install protobuf==3.19.6
 pip install --upgrade tenacity
+pip install RPi.GPIO
 
 google-oauthlib-tool --scope https://www.googleapis.com/auth/assistant-sdk-prototype \
           --scope https://www.googleapis.com/auth/gcm \

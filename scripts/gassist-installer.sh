@@ -42,9 +42,9 @@ sed -i 's/created-project-id/'$projid'/g' ${GIT_DIR}/systemd/google-assistant.se
 sed -i 's/saved-model-id/'$modelid'/g' ${GIT_DIR}/systemd/google-assistant.service
 sed -i 's/__USER__/'${USER}'/g' ${GIT_DIR}/systemd/google-assistant.service
 
-sudo apt-get install portaudio19-dev libffi-dev libssl-dev python3-google-auth-oauthlib
+sudo apt-get install portaudio19-dev libffi-dev libssl-dev
 
-python -m venv env
+python3.9 -m venv env
 source env/bin/activate
 
 pip install --upgrade pip setuptools wheel

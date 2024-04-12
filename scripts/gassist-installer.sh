@@ -54,6 +54,8 @@ pip install --upgrade tenacity
 pip install RPi.GPIO
 pip install spidev
 pip install numpy
+pip install gpiozero
+pip install yaml
 
 google-oauthlib-tool --scope https://www.googleapis.com/auth/assistant-sdk-prototype \
           --scope https://www.googleapis.com/auth/gcm \

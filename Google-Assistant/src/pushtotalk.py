@@ -325,6 +325,8 @@ def main(api_endpoint, credentials, verbose,
         wait_for_user_trigger = not once
         while True:
             if wait_for_user_trigger:
+                if GPIOcontrol:
+                    assistantindicator('listening')
                 click.pause(info='Press Enter to send a new request...')
             continue_conversation = assistant.converse()
             # wait for user trigger if there is no follow-up turn in

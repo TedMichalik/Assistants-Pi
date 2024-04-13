@@ -31,18 +31,21 @@ from tenacity import retry, stop_after_attempt, retry_if_exception
 try:
     from . import (
         assistant_helpers,
-        audio_helpers,
-        indicator
+        audio_helpers
     )
 except SystemError:
     import assistant_helpers
     import audio_helpers
-    import indicator
 
 try:
     import RPi.GPIO as GPIO
 except SystemError:
     import RPi.GPIO as GPIO
+
+try:
+    from .indicator import assistantindicator
+except SystemError:
+    from .indicator import assistantindicator
 
 ASSISTANT_API_ENDPOINT = 'embeddedassistant.googleapis.com'
 END_OF_UTTERANCE = embedded_assistant_pb2.ConverseResponse.END_OF_UTTERANCE

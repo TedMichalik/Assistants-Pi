@@ -53,6 +53,7 @@ DIALOG_FOLLOW_ON = embedded_assistant_pb2.ConverseResult.DIALOG_FOLLOW_ON
 CLOSE_MICROPHONE = embedded_assistant_pb2.ConverseResult.CLOSE_MICROPHONE
 DEFAULT_GRPC_DEADLINE = 60 * 3 + 5
 
+computer_exit = False
 
 class SampleAssistant(object):
     """Sample Assistant that supports follow-on conversations.
@@ -130,8 +131,7 @@ class SampleAssistant(object):
                 if "computer" in resp.result.spoken_request_text:
                     if "exit" in resp.result.spoken_request_text:
                         logging.info('Computer EXIT command detected.')
-                        once = True
-                        continue_conversation = False
+                        computer_exit = True
                 assistantindicator('speaking')
                 logging.info('Playing assistant response.')
             if len(resp.audio_out.audio_data) > 0:
@@ -305,8 +305,6 @@ def main(api_endpoint, credentials, verbose,
                 flush_size=audio_flush_size
             )
         )
-    # Announce start of program
-    assistantindicator('on')
 
     # Create conversation stream with the given audio source and sink.
     conversation_stream = audio_helpers.ConversationStream(
@@ -341,6 +339,8 @@ def main(api_endpoint, credentials, verbose,
 
             # If we only want one conversation, break.
             if once and (not continue_conversation):
+                break
+            if computer_exit:
                 break
 
 

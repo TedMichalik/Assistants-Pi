@@ -24,7 +24,7 @@ USER_PATH = os.path.realpath(os.path.join(__file__, '..', '..','..'))
 CORE_PATH = os.path.realpath(os.path.join(__file__, '..', '..','..','..'))
 
 with open('{}/Google-Assistant/src/config.yaml'.format(USER_PATH),'r', encoding='utf8') as conf:
-    configuration = yaml.load(conf)
+    configuration = yaml.safe_load(conf)
 
 
 

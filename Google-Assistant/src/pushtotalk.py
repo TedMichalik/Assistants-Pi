@@ -340,7 +340,7 @@ def main(api_endpoint, credentials, verbose,
             # If we only want one conversation, break.
             if once and (not continue_conversation):
                 break
-            if computer_exit:
+            elif computer_exit:
                 break
 
 

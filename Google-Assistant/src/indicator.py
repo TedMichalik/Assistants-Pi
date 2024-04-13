@@ -58,6 +58,9 @@ stoppushbutton=configuration['Gpios']['stopbutton_music_AIY_pushbutton'][0]
 GPIO.setup(stoppushbutton, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 GPIO.add_event_detect(stoppushbutton,GPIO.FALLING)
 
+#Voice
+gender=configuration['Speech']['Voice_Gender']
+
 if (audiosetup=='AIY'):
     GPIO.setup(aiyindicator, GPIO.OUT)
     led=GPIO.PWM(aiyindicator,1)
@@ -314,6 +317,7 @@ def assistantindicator(activity):
             pixels.listen()
         elif (audiosetup=='AIY'):
             led.ChangeDutyCycle(75)
+        subprocess.Popen(["aplay", "{}/sample-audio-files/Fb.wav".format(USER_PATH)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     elif activity=='speaking':
         if (audiosetup=='GEN'):
             GPIO.output(speakingindicator,GPIO.HIGH)
@@ -322,7 +326,7 @@ def assistantindicator(activity):
             pixels.speak()
         elif (audiosetup=='AIY'):
             led.ChangeDutyCycle(50)
-    elif (activity=='off' or activity=='unmute'):
+    elif (activity=='off' or activity=='mute'):
         if (audiosetup=='GEN'):
             GPIO.output(speakingindicator,GPIO.LOW)
             GPIO.output(listeningindicator,GPIO.LOW)
@@ -330,7 +334,7 @@ def assistantindicator(activity):
             pixels.off()
         elif (audiosetup=='AIY'):
             led.ChangeDutyCycle(0)
-    elif (activity=='on' or activity=='mute'):
+    elif (activity=='on' or activity=='unmute'):
         if (audiosetup=='GEN'):
             GPIO.output(speakingindicator,GPIO.HIGH)
             GPIO.output(listeningindicator,GPIO.HIGH)
@@ -338,3 +342,7 @@ def assistantindicator(activity):
             pixels.mute()
         elif (audiosetup=='AIY'):
             led.ChangeDutyCycle(100)
+        if gender=='Male':
+            subprocess.Popen(["aplay", "{}/sample-audio-files/Startup-Male.wav".format(USER_PATH)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        else:
+            subprocess.Popen(["aplay", "{}/sample-audio-files/Startup-Female.wav".format(USER_PATH)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)

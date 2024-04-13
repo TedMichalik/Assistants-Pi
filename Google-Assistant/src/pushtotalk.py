@@ -127,6 +127,8 @@ class SampleAssistant(object):
             if resp.result.spoken_request_text:
                 logging.info('Transcript of user request: "%s".',
                              resp.result.spoken_request_text)
+                if "computer" in resp.result.spoken_request_text:
+                    logging.info('Computer command detected.')
                 assistantindicator('speaking')
                 logging.info('Playing assistant response.')
             if len(resp.audio_out.audio_data) > 0:

@@ -131,6 +131,7 @@ class SampleAssistant(object):
                     if "exit" in resp.result.spoken_request_text:
                         logging.info('Computer EXIT command detected.')
                         once = True
+                        continue_conversation = False
                 assistantindicator('speaking')
                 logging.info('Playing assistant response.')
             if len(resp.audio_out.audio_data) > 0:

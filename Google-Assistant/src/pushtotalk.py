@@ -53,6 +53,8 @@ DIALOG_FOLLOW_ON = embedded_assistant_pb2.ConverseResult.DIALOG_FOLLOW_ON
 CLOSE_MICROPHONE = embedded_assistant_pb2.ConverseResult.CLOSE_MICROPHONE
 DEFAULT_GRPC_DEADLINE = 60 * 3 + 5
 
+assistantindicator('on')
+
 
 class SampleAssistant(object):
     """Sample Assistant that supports follow-on conversations.
@@ -323,8 +325,9 @@ def main(api_endpoint, credentials, verbose,
         wait_for_user_trigger = not once
         while True:
             if wait_for_user_trigger:
-                assistantindicator('listening')
+                assistantindicator('off')
                 click.pause(info='Press Enter to send a new request...')
+            assistantindicator('listening')
             continue_conversation = assistant.converse()
             # wait for user trigger if there is no follow-up turn in
             # the conversation.

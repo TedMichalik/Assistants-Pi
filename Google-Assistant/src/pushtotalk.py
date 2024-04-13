@@ -31,24 +31,18 @@ from tenacity import retry, stop_after_attempt, retry_if_exception
 try:
     from . import (
         assistant_helpers,
-        audio_helpers
+        audio_helpers,
+        indicator
     )
 except SystemError:
     import assistant_helpers
     import audio_helpers
+    import indicator
 
 try:
     import RPi.GPIO as GPIO
-except Exception as e:
-    if str(e) == 'No module named \'RPi\'':
-        GPIO = None
-
-if GPIO!=None:
-    from indicator import assistantindicator
-    GPIOcontrol=True
-else:
-    GPIOcontrol=False
-
+except SystemError:
+    import RPi.GPIO as GPIO
 
 ASSISTANT_API_ENDPOINT = 'embeddedassistant.googleapis.com'
 END_OF_UTTERANCE = embedded_assistant_pb2.ConverseResponse.END_OF_UTTERANCE
@@ -325,8 +319,7 @@ def main(api_endpoint, credentials, verbose,
         wait_for_user_trigger = not once
         while True:
             if wait_for_user_trigger:
-                if GPIOcontrol:
-                    assistantindicator('listening')
+                assistantindicator('listening')
                 click.pause(info='Press Enter to send a new request...')
             continue_conversation = assistant.converse()
             # wait for user trigger if there is no follow-up turn in

@@ -17,6 +17,7 @@ try:
 except ImportError:
     import Queue as Queue
 import yaml
+import subprocess
 
 audiosetup=''
 

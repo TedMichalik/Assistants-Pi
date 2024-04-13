@@ -67,12 +67,19 @@ if (audiosetup=='AIY'):
     led=GPIO.PWM(aiyindicator,1)
     led.start(0)
     print('Initializing GPIO '+str(aiyindicator)+' for assistant activity indication')
+    led.ChangeDutyCycle(100)
 elif (audiosetup=='GEN'):
     GPIO.setup(listeningindicator, GPIO.OUT)
     GPIO.setup(speakingindicator, GPIO.OUT)
     GPIO.output(listeningindicator, GPIO.LOW)
     GPIO.output(speakingindicator, GPIO.LOW)
     print('Initializing GPIOs '+str(listeningindicator)+' and '+str(speakingindicator)+' for assistant activity indication')
+
+if gender=='Male':
+    subprocess.Popen(["aplay", "{}/sample-audio-files/Startup-Male.wav".format(USER_PATH)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+else:
+    subprocess.Popen(["aplay", "{}/sample-audio-files/Startup-Female.wav".format(USER_PATH)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
 
 class GoogleHomeLedPattern(object):
     def __init__(self, show=None):
@@ -343,7 +350,3 @@ def assistantindicator(activity):
             pixels.mute()
         elif (audiosetup=='AIY'):
             led.ChangeDutyCycle(100)
-        if gender=='Male':
-            subprocess.Popen(["aplay", "{}/sample-audio-files/Startup-Male.wav".format(USER_PATH)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        else:
-            subprocess.Popen(["aplay", "{}/sample-audio-files/Startup-Female.wav".format(USER_PATH)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)

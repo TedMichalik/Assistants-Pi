@@ -302,10 +302,6 @@ def main(api_endpoint, credentials, verbose,
         )
     # Announce start of program
     assistantindicator('on')
-    if gender=='Male':                
-        subprocess.Popen(["aplay", "{}/sample-audio-files/Startup-Male.wav".format(USER_PATH)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    else:
-        subprocess.Popen(["aplay", "{}/sample-audio-files/Startup-Female.wav".format(USER_PATH)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
     # Create conversation stream with the given audio source and sink.
     conversation_stream = audio_helpers.ConversationStream(
@@ -333,7 +329,6 @@ def main(api_endpoint, credentials, verbose,
                 assistantindicator('off')
                 click.pause(info='Press Enter to send a new request...')
             assistantindicator('listening')
-            subprocess.Popen(["aplay", "{}/sample-audio-files/Fb.wav".format(USER_PATH)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             continue_conversation = assistant.converse()
             # wait for user trigger if there is no follow-up turn in
             # the conversation.

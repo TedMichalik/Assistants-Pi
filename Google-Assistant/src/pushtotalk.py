@@ -342,10 +342,7 @@ def main(api_endpoint, credentials, verbose,
             if once and (not continue_conversation):
                 break
             elif computer_exit:
-                logging.info('Computer EXIT triggered break.')
                 break
-            else:
-                logging.info('Computer EXIT was False.')
 
 
 if __name__ == '__main__':

@@ -131,6 +131,7 @@ class SampleAssistant(object):
                 if "computer" in resp.result.spoken_request_text:
                     if "exit" in resp.result.spoken_request_text:
                         logging.info('Computer EXIT command detected.')
+                        global computer_exit
                         computer_exit = True
                 assistantindicator('speaking')
                 logging.info('Playing assistant response.')

@@ -80,6 +80,7 @@ if gender=='Male':
 else:
     subprocess.Popen(["aplay", "{}/sample-audio-files/Startup-Female.wav".format(USER_PATH)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
+time.sleep(5)
 
 class GoogleHomeLedPattern(object):
     def __init__(self, show=None):

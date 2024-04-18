@@ -24,6 +24,8 @@ import google.auth.transport.grpc
 import google.auth.transport.requests
 import google.oauth2.credentials
 
+from porcupine import Porcupine
+
 from google.assistant.embedded.v1alpha1 import embedded_assistant_pb2
 from google.rpc import code_pb2
 from tenacity import retry, stop_after_attempt, retry_if_exception
